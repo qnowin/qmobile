@@ -1,0 +1,116 @@
+{
+  "configVersion": 1,
+  "timestamp": 1605353760755,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/main-es2015.2e96c0e951dff294315f.js",
+        "/main-es5.2e96c0e951dff294315f.js",
+        "/manifest.webmanifest",
+        "/polyfills-es2015.f332a089ad1600448873.js",
+        "/polyfills-es5.2237b5d0d7a85091411d.js",
+        "/runtime-es2015.0dae8cbc97194c7caed4.js",
+        "/runtime-es5.0dae8cbc97194c7caed4.js",
+        "/styles.0b786778e0f81b90ce3c.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/ContactUs.json",
+        "/assets/Login.json",
+        "/assets/fonts/ubuntu-mono-v7-latin-regular.notused",
+        "/assets/fonts/ubuntu.notused",
+        "/assets/icon/apple-touch-icon.png",
+        "/assets/icon/browserconfig.xml",
+        "/assets/icon/safari-pinned-tab.svg",
+        "/assets/icon/site.webmanifest",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-150x150.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-16x16.png",
+        "/assets/icons/icon-180x180.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-32x32.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/img/arrow-circle-left.svg",
+        "/assets/img/arrow-circle-right.svg",
+        "/assets/img/exchange.svg",
+        "/assets/img/menu-svgrepo-com.svg",
+        "/assets/img/menu.svg"
+      ],
+      "patterns": [
+        "https:\\/\\/fonts\\.googleapis\\.com\\/.*"
+      ]
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/assets/ContactUs.json": "87e9ca3826ef47e76d15e3a3b3902d611807b94f",
+    "/assets/Login.json": "d8051f704ac4a4fb147f4feadb633b333d26b38c",
+    "/assets/fonts/ubuntu-mono-v7-latin-regular.notused": "1248f62320ab58c922f09d2cc6495332164928e9",
+    "/assets/fonts/ubuntu.notused": "77a6a0829abef6aafd1e4edab6050b68e616520b",
+    "/assets/icon/apple-touch-icon.png": "cbd928cc41d0715a70b171650a41d0445e288c07",
+    "/assets/icon/browserconfig.xml": "5a6d986c287d84efa8765e3d2fb997caeaa347ca",
+    "/assets/icon/safari-pinned-tab.svg": "a0913c4a02433a105f34297363d0884dfc0530b8",
+    "/assets/icon/site.webmanifest": "d6f7c88dacbf3e3437c1e98c95fffa1ae27a9fc4",
+    "/assets/icons/icon-128x128.png": "0377bc04ca32d918dfe18c8a32c379a57e0d072f",
+    "/assets/icons/icon-144x144.png": "c4f80436322f31d0b99a446aa185ebf14bc12bf9",
+    "/assets/icons/icon-150x150.png": "2a1e54cfd1444e23a627392ad7fa12d652f02f53",
+    "/assets/icons/icon-152x152.png": "c90ae93d693fb382ec0010ff162e11a1fe4fab9c",
+    "/assets/icons/icon-16x16.png": "9a47433d6eeed2c8d4a441b3161ee06f0bf34e30",
+    "/assets/icons/icon-180x180.png": "81ac72c09bceffa2ae44eb5ba61fde270c02c600",
+    "/assets/icons/icon-192x192.png": "aabf7f9a13b48a90b2e78336ee45157187c893b2",
+    "/assets/icons/icon-32x32.png": "f0d6f6e9d578882b44dbef512248189463968607",
+    "/assets/icons/icon-384x384.png": "9eab0a9aff3b67d702cc8342c13bab219a733926",
+    "/assets/icons/icon-512x512.png": "70551fc5779f258fcaa7f980a8ca94cbcfbad15f",
+    "/assets/icons/icon-72x72.png": "a1889fd3be0692388e38eb5e3fa6c917fd336227",
+    "/assets/icons/icon-96x96.png": "fa24a5c9a880bb6413e91f9d7f45d7dd6fdb833d",
+    "/assets/img/arrow-circle-left.svg": "86fdd6f66a6bd2098e699f4e18a0b5b37cfc45c0",
+    "/assets/img/arrow-circle-right.svg": "33a8c128920f5fe6c552b637dbfb297cff9e4807",
+    "/assets/img/exchange.svg": "46f277219021dba84a651df28ee2f28c4093a798",
+    "/assets/img/menu-svgrepo-com.svg": "1488f6942ea6509f565345ff55a4982dd7e64baf",
+    "/assets/img/menu.svg": "46f277219021dba84a651df28ee2f28c4093a798",
+    "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/index.html": "177da39e425319adc83c3390b6eb1fd78d056420",
+    "/main-es2015.2e96c0e951dff294315f.js": "61b0e12ce1928a69029a1edcf6fb64bf44fab752",
+    "/main-es5.2e96c0e951dff294315f.js": "dc7cc7cca74c870e0338a252f21aa1aa0765f4b5",
+    "/manifest.webmanifest": "b899254eee6b7b79e8cc39a8672acf69377f22bf",
+    "/polyfills-es2015.f332a089ad1600448873.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
+    "/polyfills-es5.2237b5d0d7a85091411d.js": "8aa26ea87b9958c6bd13b7c257c0e9940438e684",
+    "/runtime-es2015.0dae8cbc97194c7caed4.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/runtime-es5.0dae8cbc97194c7caed4.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/styles.0b786778e0f81b90ce3c.css": "26995140a23717d856c48030764b8d7da48b3409"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
