@@ -5343,7 +5343,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   MQTT_USESSL: () => (/* binding */ MQTT_USESSL),
 /* harmony export */   sEndPoint: () => (/* binding */ sEndPoint)
 /* harmony export */ });
-const sEndPoint = "http://api.bullish.sg/";
+const sEndPoint = "https://api.bullish.sg/";
 const MQTT_HOST = 'msg.bullish.sg';
 const MQTT_PORT = 443;
 const MQTT_USESSL = true;
