@@ -1,23 +1,23 @@
 {
   "configVersion": 1,
-  "timestamp": 1609994467854,
+  "timestamp": 1706407018946,
   "index": "/index.html",
   "assetGroups": [
     {
-      "name": "app",
+      "name": "qmobile",
       "installMode": "prefetch",
       "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
       "urls": [
-        "/favicon.ico",
         "/index.html",
-        "/main-es2015.79ddde5464c8a4b64611.js",
-        "/main-es5.79ddde5464c8a4b64611.js",
+        "/main.js",
         "/manifest.webmanifest",
-        "/polyfills-es2015.f332a089ad1600448873.js",
-        "/polyfills-es5.2237b5d0d7a85091411d.js",
-        "/runtime-es2015.0dae8cbc97194c7caed4.js",
-        "/runtime-es5.0dae8cbc97194c7caed4.js",
-        "/styles.0b786778e0f81b90ce3c.css"
+        "/polyfills.js",
+        "/runtime.js",
+        "/styles.css",
+        "/vendor.js"
       ],
       "patterns": []
     },
@@ -25,6 +25,9 @@
       "name": "assets",
       "installMode": "lazy",
       "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
       "urls": [
         "/assets/ContactUs.json",
         "/assets/Login.json",
@@ -84,16 +87,13 @@
     "/assets/img/exchange.svg": "46f277219021dba84a651df28ee2f28c4093a798",
     "/assets/img/menu-svgrepo-com.svg": "1488f6942ea6509f565345ff55a4982dd7e64baf",
     "/assets/img/menu.svg": "46f277219021dba84a651df28ee2f28c4093a798",
-    "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/index.html": "5a5f644756bce714995fb3dcab0321b6ad2df750",
-    "/main-es2015.79ddde5464c8a4b64611.js": "2a86ea03db5ef88d790e0dcfffeb778e8aeaa4f2",
-    "/main-es5.79ddde5464c8a4b64611.js": "18e17d569b2a79395410d8e58ad9a6a7362f5d26",
+    "/index.html": "f229c25669d11732860fcc4c521eca10d2a043dd",
+    "/main.js": "27738dd1c9c81750653d4526947d9d53ebae496f",
     "/manifest.webmanifest": "b899254eee6b7b79e8cc39a8672acf69377f22bf",
-    "/polyfills-es2015.f332a089ad1600448873.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
-    "/polyfills-es5.2237b5d0d7a85091411d.js": "8aa26ea87b9958c6bd13b7c257c0e9940438e684",
-    "/runtime-es2015.0dae8cbc97194c7caed4.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/runtime-es5.0dae8cbc97194c7caed4.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/styles.0b786778e0f81b90ce3c.css": "26995140a23717d856c48030764b8d7da48b3409"
+    "/polyfills.js": "e7e2bc871c451dfb2cb3d5f4200d2bbd508709d2",
+    "/runtime.js": "1f98b5aaea65679445e8091bb31ab941af34f961",
+    "/styles.css": "f04d392184fe0ff27ee7df879bb4d8d1042ccc84",
+    "/vendor.js": "2ef32069a23ca90e97775302970d095aed5bb1f3"
   },
   "navigationUrls": [
     {
@@ -112,5 +112,6 @@
       "positive": false,
       "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
     }
-  ]
+  ],
+  "navigationRequestStrategy": "performance"
 }
