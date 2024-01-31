@@ -447,9 +447,8 @@ class AppComponent {
     this.matIconRegistry.addSvgIcon("ksd-menu", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/img/menu.svg"));
     // console.log("***", this.activatedRoute.snapshot.queryParamMap.get('qr'));
     // console.log(activatedRoute.snapshot.queryParamMap);
-    // this.router.navigate(['login']);
+    this.router.navigate(['login']);
   }
-
   isMobileBrowser() {
     var deviceInfo = this.deviceService.getDeviceInfo();
     const isMobile = this.deviceService.isMobile();
@@ -1122,7 +1121,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   AuthGuardService: () => (/* binding */ AuthGuardService)
 /* harmony export */ });
-/* harmony import */ var _private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
+/* harmony import */ var _Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
 /* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! uuid */ 4289);
 /* harmony import */ var _properties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./properties */ 8101);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 1699);
@@ -1141,7 +1140,7 @@ class AuthGuardService {
   }
   canActivate() {
     var _this = this;
-    return (0,_private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       if (!(yield _this.authService.checkAuthenticated())) {
         // this.router.navigate(['']);
         var data = {};
@@ -1177,7 +1176,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   AuthService: () => (/* binding */ AuthService)
 /* harmony export */ });
-/* harmony import */ var _private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
+/* harmony import */ var _Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ 8071);
 /* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./api.service */ 8789);
 /* harmony import */ var ngx_webstorage_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-webstorage-service */ 4878);
@@ -1208,25 +1207,25 @@ class AuthService {
   }
   checkAuthenticated() {
     var _this = this;
-    return (0,_private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       console.info("checkAuthenticated");
       const authenticated = yield _this.exists();
-      _this.isAuthenticated.next(authenticated);
       console.info(authenticated);
+      if (authenticated) _this.isAuthenticated.next(authenticated);
       return authenticated;
     })();
   }
   login(sService, data, sRedirectURL = null) {
     var _this2 = this;
-    return (0,_private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       try {
-        //      console.log(data);
         const id = yield _this2.oAPIService?.performLogin(sService, data);
         // console.info(id);
         _app_properties__WEBPACK_IMPORTED_MODULE_2__.Global_Variables.token = id;
         if (id) {
-          if (id.success == false) {
-            console.error("Login Failed. ", id);
+          console.log("***ID", id);
+          if (id['status'] == 'error') {
+            console.error("*** FATAL Login Failed. ", id);
           }
           // let o = this.jwtHelper.decodeToken(id.access_token);
           let o = (0,jwt_decode__WEBPACK_IMPORTED_MODULE_3__.jwtDecode)(id.access_token);
@@ -1258,7 +1257,7 @@ class AuthService {
 
   logout(redirect) {
     var _this3 = this;
-    return (0,_private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       try {
         _this3.oStorage.remove(STORAGE_KEY);
         _app_properties__WEBPACK_IMPORTED_MODULE_2__.Global_Variables.token = null;
@@ -1297,6 +1296,7 @@ class AuthService {
     var id = this.oStorage.get(STORAGE_KEY);
     if (id) {
       try {
+        console.log(">>ID", id);
         let o = (0,jwt_decode__WEBPACK_IMPORTED_MODULE_3__.jwtDecode)(id.access_token);
         let user_fields = JSON.parse(o.user_fields);
         // console.info(user_fields);
@@ -1325,7 +1325,7 @@ class AuthService {
   }
   loadUserInfo(data) {
     var _this4 = this;
-    return (0,_private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       if (_this4.exists()) return true;
       return _this4.login(_app_properties__WEBPACK_IMPORTED_MODULE_2__.Global_Variables.AUTH_URL, data, "entities");
     })();
@@ -1552,10 +1552,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   ClinicsComponent: () => (/* binding */ ClinicsComponent)
 /* harmony export */ });
-/* harmony import */ var _private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
+/* harmony import */ var _Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
 /* harmony import */ var _app_properties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../app/properties */ 8101);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ 8849);
-/* harmony import */ var abstract_mqtt__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! abstract-mqtt */ 1622);
+/* harmony import */ var abstract_mqtt__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! abstract-mqtt */ 1820);
 /* harmony import */ var abstract_mqtt__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(abstract_mqtt__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _env_properties__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../env.properties */ 2430);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ 8540);
@@ -1588,27 +1588,27 @@ __webpack_require__.r(__webpack_exports__);
 
 function ClinicsComponent_div_0_div_8_span_3_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](0, "span", 15);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](0, "span", 17);
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtext"](1, "open");
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]();
   }
 }
 function ClinicsComponent_div_0_div_8_span_4_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](0, "span", 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](0, "span", 18);
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtext"](1, "closed");
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]();
   }
 }
 function ClinicsComponent_div_0_div_8_div_6_Template(rf, ctx) {
   if (rf & 1) {
-    const _r13 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](0, "div", 17)(1, "a", 14);
+    const _r19 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](0, "div", 19)(1, "a", 16);
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵlistener"]("click", function ClinicsComponent_div_0_div_8_div_6_Template_a_click_1_listener() {
-      _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵrestoreView"](_r13);
+      _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵrestoreView"](_r19);
       const o_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵnextContext"]().$implicit;
-      const ctx_r11 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵnextContext"](2);
-      return _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵresetView"](ctx_r11.onBusinessHours(o_r3));
+      const ctx_r17 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵnextContext"](2);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵresetView"](ctx_r17.onBusinessHours(o_r3));
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtext"](2, "Business Hours");
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]()();
@@ -1616,7 +1616,7 @@ function ClinicsComponent_div_0_div_8_div_6_Template(rf, ctx) {
 }
 function ClinicsComponent_div_0_div_8_div_7_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](0, "div", 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](0, "div", 19);
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵpipe"](2, "timeFormat");
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵpipe"](3, "timeFormat");
@@ -1628,14 +1628,54 @@ function ClinicsComponent_div_0_div_8_div_7_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtextInterpolate2"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵpipeBind1"](2, 2, o_r3.TIME_OPEN), " - ", _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵpipeBind1"](3, 4, o_r3.TIME_CLOSE), " ");
   }
 }
-function ClinicsComponent_div_0_div_8_div_27_Template(rf, ctx) {
+function ClinicsComponent_div_0_div_8_ng_container_20_Template(rf, ctx) {
   if (rf & 1) {
-    const _r16 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](0, "div")(1, "a", 18);
-    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵlistener"]("click", function ClinicsComponent_div_0_div_8_div_27_Template_a_click_1_listener() {
-      _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵrestoreView"](_r16);
-      const ctx_r15 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵnextContext"](3);
-      return _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵresetView"](ctx_r15.goToStatus());
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementContainerStart"](0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵpipe"](2, "lpad");
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementContainerEnd"]();
+  }
+  if (rf & 2) {
+    const o_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵnextContext"]().$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtextInterpolate2"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵpipeBind3"](2, 2, o_r3.PREFIX, 2, " "), "", o_r3.CURRENTQN_T, " ");
+  }
+}
+function ClinicsComponent_div_0_div_8_ng_template_21_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](0, "i");
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtext"](1, "None");
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]();
+  }
+}
+function ClinicsComponent_div_0_div_8_ng_container_24_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementContainerStart"](0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵpipe"](2, "lpad");
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementContainerEnd"]();
+  }
+  if (rf & 2) {
+    const o_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵnextContext"]().$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtextInterpolate2"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵpipeBind3"](2, 2, o_r3.PREFIX, 2, " "), "", o_r3.ISSUEDQN_T, " ");
+  }
+}
+function ClinicsComponent_div_0_div_8_ng_template_25_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](0, "i");
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtext"](1, "None");
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]();
+  }
+}
+function ClinicsComponent_div_0_div_8_div_29_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r24 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](0, "div")(1, "a", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵlistener"]("click", function ClinicsComponent_div_0_div_8_div_29_Template_a_click_1_listener() {
+      _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵrestoreView"](_r24);
+      const ctx_r23 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵnextContext"](3);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵresetView"](ctx_r23.goToStatus());
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵpipe"](3, "lpad");
@@ -1647,21 +1687,21 @@ function ClinicsComponent_div_0_div_8_div_27_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtextInterpolate2"]("Your Q# ", _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵpipeBind3"](3, 2, o_r3.PREFIX, 2, " "), "", o_r3._D[0].QUEUEN_T, "");
   }
 }
-function ClinicsComponent_div_0_div_8_div_28_Template(rf, ctx) {
+function ClinicsComponent_div_0_div_8_div_30_Template(rf, ctx) {
   if (rf & 1) {
-    const _r20 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](0, "div")(1, "a", 14);
-    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵlistener"]("click", function ClinicsComponent_div_0_div_8_div_28_Template_a_click_1_listener() {
-      _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵrestoreView"](_r20);
+    const _r28 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](0, "div")(1, "a", 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵlistener"]("click", function ClinicsComponent_div_0_div_8_div_30_Template_a_click_1_listener() {
+      _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵrestoreView"](_r28);
       const o_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵnextContext"]().$implicit;
-      const ctx_r18 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵnextContext"](2);
-      return _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵresetView"](ctx_r18.onGetQN(o_r3));
+      const ctx_r26 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵnextContext"](2);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵresetView"](ctx_r26.onGetQN(o_r3));
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtext"](2, "Join Queue");
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]()();
   }
 }
-function ClinicsComponent_div_0_div_8_div_29_Template(rf, ctx) {
+function ClinicsComponent_div_0_div_8_div_31_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](0, "div");
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtext"](1, " Closed ");
@@ -1670,7 +1710,7 @@ function ClinicsComponent_div_0_div_8_div_29_Template(rf, ctx) {
 }
 function ClinicsComponent_div_0_div_8_Template(rf, ctx) {
   if (rf & 1) {
-    const _r22 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵgetCurrentView"]();
+    const _r30 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](0, "div")(1, "div")(2, "div");
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtemplate"](3, ClinicsComponent_div_0_div_8_span_3_Template, 2, 0, "span", 7);
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtemplate"](4, ClinicsComponent_div_0_div_8_span_4_Template, 2, 0, "span", 8);
@@ -1683,38 +1723,39 @@ function ClinicsComponent_div_0_div_8_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelement"](9, "br")(10, "br");
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](11, "div", 10)(12, "div", 11)(13, "span", 12);
-    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtext"](14, "Now Servicing");
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtext"](14, "Now AAAA Servicing");
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]()();
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](15, "div", 11)(16, "span", 12);
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtext"](17, "Last");
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]()()();
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](18, "div", 10)(19, "div", 11);
-    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtext"](20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵpipe"](21, "lpad");
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtemplate"](20, ClinicsComponent_div_0_div_8_ng_container_20_Template, 3, 6, "ng-container", 13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtemplate"](21, ClinicsComponent_div_0_div_8_ng_template_21_Template, 2, 0, "ng-template", null, 14, _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtemplateRefExtractor"]);
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](22, "div", 11);
-    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtext"](23);
-    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵpipe"](24, "lpad");
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](23, "div", 11);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtemplate"](24, ClinicsComponent_div_0_div_8_ng_container_24_Template, 3, 6, "ng-container", 13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtemplate"](25, ClinicsComponent_div_0_div_8_ng_template_25_Template, 2, 0, "ng-template", null, 14, _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtemplateRefExtractor"]);
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](25, "div", 10)(26, "div", 11);
-    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtemplate"](27, ClinicsComponent_div_0_div_8_div_27_Template, 4, 6, "div", 13);
-    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtemplate"](28, ClinicsComponent_div_0_div_8_div_28_Template, 3, 0, "div", 13);
-    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtemplate"](29, ClinicsComponent_div_0_div_8_div_29_Template, 2, 0, "div", 13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](27, "div", 10)(28, "div", 11);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtemplate"](29, ClinicsComponent_div_0_div_8_div_29_Template, 4, 6, "div", 15);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtemplate"](30, ClinicsComponent_div_0_div_8_div_30_Template, 3, 0, "div", 15);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtemplate"](31, ClinicsComponent_div_0_div_8_div_31_Template, 2, 0, "div", 15);
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](30, "div", 11)(31, "a", 14);
-    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵlistener"]("click", function ClinicsComponent_div_0_div_8_Template_a_click_31_listener() {
-      const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵrestoreView"](_r22);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](32, "div", 11)(33, "a", 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵlistener"]("click", function ClinicsComponent_div_0_div_8_Template_a_click_33_listener() {
+      const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵrestoreView"](_r30);
       const o_r3 = restoredCtx.$implicit;
-      const ctx_r21 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵnextContext"](2);
-      return _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵresetView"](ctx_r21.onBookAppointment(o_r3));
+      const ctx_r29 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵnextContext"](2);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵresetView"](ctx_r29.onBookAppointment(o_r3));
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtext"](32, "Appointment");
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtext"](34, "Appointment");
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelement"](33, "hr");
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelement"](35, "hr");
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
     const o_r3 = ctx.$implicit;
+    const _r9 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵreference"](22);
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵadvance"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵproperty"]("ngIf", !o_r3.bClosed);
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵadvance"](1);
@@ -1726,10 +1767,10 @@ function ClinicsComponent_div_0_div_8_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵproperty"]("ngIf", !o_r3.bClosed);
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵadvance"](13);
-    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtextInterpolate2"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵpipeBind3"](21, 12, o_r3 == null ? null : o_r3.PREFIX, 2, " "), "", o_r3.CURRENTQN_T, " ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵadvance"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtextInterpolate2"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵpipeBind3"](24, 16, o_r3 == null ? null : o_r3.PREFIX, 2, " "), "", o_r3.ISSUEDQN_T, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵproperty"]("ngIf", o_r3.CURRENTQN_T != "null")("ngIfElse", _r9);
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵadvance"](4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵproperty"]("ngIf", o_r3.ISSUEDQN_T)("ngIfElse", _r9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵadvance"](5);
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵproperty"]("ngIf", !o_r3.bClosed && o_r3._D.length > 0);
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵproperty"]("ngIf", !o_r3.bClosed && o_r3._D.length == 0);
@@ -1745,20 +1786,20 @@ const _c0 = function (a0, a1) {
 };
 function ClinicsComponent_div_0_Template(rf, ctx) {
   if (rf & 1) {
-    const _r24 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵgetCurrentView"]();
+    const _r32 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](0, "div", 1)(1, "div", 2)(2, "div", 3)(3, "div", 4);
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵlistener"]("click", function ClinicsComponent_div_0_Template_div_click_3_listener() {
-      const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵrestoreView"](_r24);
+      const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵrestoreView"](_r32);
       const oo_r1 = restoredCtx.$implicit;
-      const ctx_r23 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵnextContext"]();
-      return _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵresetView"](ctx_r23.showDetails(oo_r1));
+      const ctx_r31 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵnextContext"]();
+      return _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵresetView"](ctx_r31.showDetails(oo_r1));
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtext"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelement"](5, "br");
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtext"](6);
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](7, "div", 5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtemplate"](8, ClinicsComponent_div_0_div_8_Template, 34, 20, "div", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtemplate"](8, ClinicsComponent_div_0_div_8_Template, 36, 12, "div", 6);
     _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]()()()();
   }
   if (rf & 2) {
@@ -1845,7 +1886,7 @@ class ClinicsComponent extends abstract_mqtt__WEBPACK_IMPORTED_MODULE_2__.MqttSe
     var _superprop_getSetConnect = () => super.setConnect,
       _superprop_getSubscribe = () => super.subscribe,
       _this = this;
-    return (0,_private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       if (_this.oEntity !== undefined && oEntity != _this.oEntity) {
         _this.oEntity.bExpanded = false;
       }
@@ -1896,10 +1937,11 @@ class ClinicsComponent extends abstract_mqtt__WEBPACK_IMPORTED_MODULE_2__.MqttSe
   }
   load() {
     var _this2 = this;
-    return (0,_private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       _this2.bErrorLoading = false;
       // var b = await (this.oAuthService.loadUserInfo({}));
       //    console.log("Logged In " + b);
+      let a = 1;
       _this2.oAPIService.send2ServerP("entities", true, {
         COUNTRY: _app_properties__WEBPACK_IMPORTED_MODULE_1__.Global_Variables.sCountry
       }).then(data => {
@@ -1910,7 +1952,7 @@ class ClinicsComponent extends abstract_mqtt__WEBPACK_IMPORTED_MODULE_2__.MqttSe
 
         _this2.bLoaded = true;
       }).catch( /*#__PURE__*/function () {
-        var _ref = (0,_private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* (err) {
+        var _ref = (0,_Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* (err) {
           console.error(err);
           if (err.status == 403) {
             // token expired
@@ -2036,7 +2078,7 @@ class ClinicsComponent extends abstract_mqtt__WEBPACK_IMPORTED_MODULE_2__.MqttSe
   }
   onBusinessHours(oItem) {
     var _this3 = this;
-    return (0,_private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       oItem.ENAME = _this3.oEntity.ENAME;
       yield _this3.oRouter.navigateByUrl("businesshours", {
         state: oItem
@@ -2102,7 +2144,7 @@ class ClinicsComponent extends abstract_mqtt__WEBPACK_IMPORTED_MODULE_2__.MqttSe
     features: [_angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵInheritDefinitionFeature"]],
     decls: 1,
     vars: 1,
-    consts: [["class", "card", 4, "ngFor", "ngForOf"], [1, "card"], [1, "card-body"], [1, "task"], [1, "entity-title", 3, "click"], [1, "details", "service-title", 3, "ngClass"], [4, "ngFor", "ngForOf"], ["class", "badge badge-success", 4, "ngIf"], ["class", "badge badge-danger", 4, "ngIf"], ["text-center", "", "class", "float-right", 4, "ngIf"], [1, "row"], [1, "column"], [1, "badge", "badge-warning"], [4, "ngIf"], ["color", "accent", "mat-raised-button", "", 3, "click"], [1, "badge", "badge-success"], [1, "badge", "badge-danger"], ["text-center", "", 1, "float-right"], ["mat-raised-button", "", "color", "accent", 3, "click"]],
+    consts: [["class", "card", 4, "ngFor", "ngForOf"], [1, "card"], [1, "card-body"], [1, "task"], [1, "entity-title", 3, "click"], [1, "details", "service-title", 3, "ngClass"], [4, "ngFor", "ngForOf"], ["class", "badge badge-success", 4, "ngIf"], ["class", "badge badge-danger", 4, "ngIf"], ["text-center", "", "class", "float-right", 4, "ngIf"], [1, "row"], [1, "column"], [1, "badge", "badge-warning"], [4, "ngIf", "ngIfElse"], ["nullTemplate", ""], [4, "ngIf"], ["color", "accent", "mat-raised-button", "", 3, "click"], [1, "badge", "badge-success"], [1, "badge", "badge-danger"], ["text-center", "", 1, "float-right"], ["mat-raised-button", "", "color", "accent", 3, "click"]],
     template: function ClinicsComponent_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtemplate"](0, ClinicsComponent_div_0_Template, 9, 7, "div", 0);
@@ -2129,7 +2171,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   ContactUsComponent: () => (/* binding */ ContactUsComponent)
 /* harmony export */ });
-/* harmony import */ var _private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
+/* harmony import */ var _Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 1699);
 /* harmony import */ var _title_bar_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../title-bar.service */ 9018);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ 7947);
@@ -2205,7 +2247,7 @@ class ContactUsComponent {
   }
   ngOnInit() {
     var _this = this;
-    return (0,_private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       _this.oAPI.send2Server(_this._jsonURL).then(content => {
         var formObject = content; //JSON.parse(content) ;
         _this.oFormSchema = formObject['schema'];
@@ -2311,7 +2353,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   EntitiesComponent: () => (/* binding */ EntitiesComponent)
 /* harmony export */ });
-/* harmony import */ var _private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
+/* harmony import */ var _Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
 /* harmony import */ var _app_properties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../app/properties */ 8101);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ 8849);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 1699);
@@ -2455,7 +2497,7 @@ class EntitiesComponent {
 
   load() {
     var _this = this;
-    return (0,_private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       _this.bErrorLoading = false;
       // console.log("DEVICEUID", this.oAuthService.getDeviceID());
       // var b = await (this.oAuthService.loadUserInfo({}));
@@ -2469,7 +2511,7 @@ class EntitiesComponent {
         }
         _this.bLoaded = true;
       }).catch( /*#__PURE__*/function () {
-        var _ref = (0,_private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* (err) {
+        var _ref = (0,_Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* (err) {
           console.error(err);
           if (err.status == 403) {
             // token expired
@@ -2503,7 +2545,7 @@ class EntitiesComponent {
   // }
   onEntityClick(oItem) {
     var _this2 = this;
-    return (0,_private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       _app_properties__WEBPACK_IMPORTED_MODULE_1__.Global_Variables.oEID = oItem.ID;
       yield _this2.oRouter.navigateByUrl("services", {
         state: oItem
@@ -2654,7 +2696,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   LoginComponent: () => (/* binding */ LoginComponent)
 /* harmony export */ });
-/* harmony import */ var _private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
+/* harmony import */ var _Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
 /* harmony import */ var _app_properties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../app/properties */ 8101);
 /* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! uuid */ 4289);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 1699);
@@ -2738,7 +2780,7 @@ class LoginComponent {
   }
   ngOnInit() {
     var _this = this;
-    return (0,_private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       yield _this.isMobile();
       _this.oDemographics = _this.oAuthService.getDemographics();
       if (_this.oDemographics !== undefined) {
@@ -2804,7 +2846,7 @@ class LoginComponent {
   }
   isMobile() {
     var _this2 = this;
-    return (0,_private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       let me = _this2;
       yield _this2.oAPIService.send2ServerNoHeader("https://api.bigdatacloud.net/data/client-info").then(d => {
         console.log(d);
@@ -2825,7 +2867,7 @@ class LoginComponent {
   }
   getLocation() {
     var _this3 = this;
-    return (0,_private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       var me = _this3;
       yield _this3.oAPIService.send2ServerNoHeader("https://ipapi.co/json").then(d => {
         console.log("TEST", d);
@@ -2840,7 +2882,7 @@ class LoginComponent {
   }
   getLocationGeoV2NotUsed() {
     var _this4 = this;
-    return (0,_private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       //    this.sCountry = Global_Variables.sCountry;
       _this4.bHasLocation = true;
       // console.log(Global_Variables);
@@ -2955,7 +2997,7 @@ class LoginComponent {
   // }
   showEntities() {
     var _this5 = this;
-    return (0,_private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       if (!_this5.oAuthService.exists()) {
         var data = {};
         data.DEVICEUID = _this5.oAuthService.getDeviceID();
@@ -3181,7 +3223,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _app_properties__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../app/properties */ 8101);
 /* harmony import */ var _env_properties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../env.properties */ 2430);
-/* harmony import */ var abstract_mqtt__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! abstract-mqtt */ 1622);
+/* harmony import */ var abstract_mqtt__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! abstract-mqtt */ 1820);
 /* harmony import */ var abstract_mqtt__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(abstract_mqtt__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ 1699);
 /* harmony import */ var _title_bar_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../title-bar.service */ 9018);
@@ -3754,7 +3796,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ 8540);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var abstract_mqtt__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! abstract-mqtt */ 1622);
+/* harmony import */ var abstract_mqtt__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! abstract-mqtt */ 1820);
 /* harmony import */ var abstract_mqtt__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(abstract_mqtt__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _app_properties__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../app/properties */ 8101);
 /* harmony import */ var _env_properties__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../env.properties */ 2430);
@@ -4589,12 +4631,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   ServicesComponent: () => (/* binding */ ServicesComponent)
 /* harmony export */ });
-/* harmony import */ var _private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
+/* harmony import */ var _Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
 /* harmony import */ var _app_properties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../app/properties */ 8101);
 /* harmony import */ var _env_properties__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../env.properties */ 2430);
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment-timezone */ 1525);
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var abstract_mqtt__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! abstract-mqtt */ 1622);
+/* harmony import */ var abstract_mqtt__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! abstract-mqtt */ 1820);
 /* harmony import */ var abstract_mqtt__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(abstract_mqtt__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/core */ 1699);
 /* harmony import */ var _title_bar_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../title-bar.service */ 9018);
@@ -4732,7 +4774,7 @@ function ServicesComponent_div_0_mat_card_6_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](6, ServicesComponent_div_0_mat_card_6_div_6_Template, 6, 0, "div", 3);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](7, "mat-card-content")(8, "mat-grid-list", 7)(9, "mat-grid-tile");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](10, "Now Servicing");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](10, "Now AA Servicing");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](11, "mat-grid-tile");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](12, "Last");
@@ -4769,9 +4811,9 @@ function ServicesComponent_div_0_mat_card_6_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngIf", o_r3.bClosed);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtextInterpolate2"]("", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipeBind3"](16, 9, o_r3 == null ? null : o_r3.PREFIX, 2, " "), "", o_r3.CURRENTQN_T, "");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtextInterpolate2"]("", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipeBind3"](16, 9, o_r3 == null ? null : o_r3.PREFIX, 2, " "), "", o_r3 == null ? null : o_r3.CURRENTQN_T, "");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtextInterpolate2"]("", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipeBind3"](19, 13, o_r3 == null ? null : o_r3.PREFIX, 2, " "), "", o_r3.ISSUEDQN_T, "");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtextInterpolate2"]("", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipeBind3"](19, 13, o_r3 == null ? null : o_r3.PREFIX, 2, " "), "", o_r3 == null ? null : o_r3.ISSUEDQN_T, "");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngIf", o_r3._D.length == 0);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](1);
@@ -4878,8 +4920,10 @@ class ServicesComponent extends abstract_mqtt__WEBPACK_IMPORTED_MODULE_4__.MqttS
         this.oItems.forEach((oItem, index) => {
           //          console.log("*** ", oItem);
           if (oItem._D.length > 0) oItem._D[0].QUEUEN_T = this.padLeft(oItem._D[0].QUEUEN, "0", 3);
-          oItem.CURRENTQN_T = this.padLeft(oItem.CURRENTQN, "0", 3);
-          oItem.ISSUEDQN_T = this.padLeft(oItem.ISSUEDQN, "0", 3);
+          if (oItem.ISSUEDQN !== null) {
+            oItem.CURRENTQN_T = this.padLeft(oItem.CURRENTQN, "0", 3);
+            oItem.ISSUEDQN_T = this.padLeft(oItem.ISSUEDQN, "0", 3);
+          }
           this.setCanQueueUpNow(oItem);
           if (index == this.oItems.length - 1) {
             setTimeout(() => {
@@ -4996,7 +5040,7 @@ class ServicesComponent extends abstract_mqtt__WEBPACK_IMPORTED_MODULE_4__.MqttS
   }
   onBusinessHours(oItem) {
     var _this = this;
-    return (0,_private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       oItem.ENAME = _this.oEntity.ENAME;
       yield _this.oRouter.navigateByUrl("businesshours", {
         state: oItem
@@ -5099,7 +5143,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   TakeQueueComponent: () => (/* binding */ TakeQueueComponent)
 /* harmony export */ });
-/* harmony import */ var _private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
+/* harmony import */ var _Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
 /* harmony import */ var _app_properties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../app/properties */ 8101);
 /* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! uuid */ 4289);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 1699);
@@ -5137,7 +5181,7 @@ class TakeQueueComponent {
   }
   getInstantQNumber(sInstantQServiceID, sCountry, lat, lng) {
     var _this = this;
-    return (0,_private_tmp_qmobile_new_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_uqapp_qstatus_qmobile_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       _app_properties__WEBPACK_IMPORTED_MODULE_1__.Global_Variables.InstantQ = ''; // reset
       console.log(sInstantQServiceID);
       _app_properties__WEBPACK_IMPORTED_MODULE_1__.Global_Variables.sCountry = sCountry;
@@ -5398,368 +5442,6 @@ if (_environments_environment__WEBPACK_IMPORTED_MODULE_1__.environment.productio
   (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.enableProdMode)();
 }
 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__.platformBrowser().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_0__.AppModule).catch(err => console.error(err));
-
-/***/ }),
-
-/***/ 1622:
-/*!******************************************!*\
-  !*** ../abstract-mqtt-npm/dist/index.js ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-function __export(m) {
-  for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-__export(__webpack_require__(/*! ./mqtt.service */ 1482));
-
-/***/ }),
-
-/***/ 1482:
-/*!*************************************************!*\
-  !*** ../abstract-mqtt-npm/dist/mqtt.service.js ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-var mqttws31_1 = __webpack_require__(/*! mosq-mqtt/mqttws31 */ 9374);
-var uuid_1 = __webpack_require__(/*! uuid */ 8371);
-var rxjs_1 = __webpack_require__(/*! rxjs */ 7662);
-var bDebug = true;
-var MqttService = /** @class */function () {
-  function MqttService(MQTT_HOST, MQTT_PORT, Global_Variables, bConnect) {
-    if (bConnect === void 0) {
-      bConnect = true;
-    }
-    this.bReconnecting = false;
-    this.bServerUp = false;
-    this.bConnect = true;
-    this.bConnected = false;
-    this.connectSubscription = null;
-    this.disconnectSubscription = null;
-    this.oMqttStatus = '';
-    this.oTopics = new Array();
-    this.oPendingMessages = new Map();
-    this.options = {
-      useSSL: true,
-      userName: "test",
-      password: "test12",
-      onSuccess: this.onConnectedSubscribe.bind(this),
-      onFailure: this.onFailure.bind(this),
-      keepAliveInterval: 24,
-      cleanSession: true
-    };
-    /*
-      monitorNetwork() {
-        // if (this.network === undefined) return;
-        // this.deleteMonitorNetwork();
-        // this.disconnectSubscription = this.network.onDisconnect().subscribe(() => {
-        //   console.log('network was disconnected :-(');
-        //   Global_Variables.isConnected = false;
-        //   this.oMqttStatus = "No Network";
-        // });
-    
-        // this.connectSubscription = this.network.onConnect().subscribe(() => {
-        //   setTimeout(() => {
-        //     console.log("Network Connected.");
-        //     Global_Variables.isConnected = true;
-        //     this.connect();
-        //   }, 1000);
-        // });
-      }
-    
-      deleteMonitorNetwork() {
-        if (this.network === undefined) return;
-        //  ngOnDestroy() {
-        // always unsubscribe your subscriptions to prevent leaks
-        if (bDebug)
-          console.log("Unsubscribing: Network Up/Down");
-        if (this.disconnectSubscription != null) {
-          this.disconnectSubscription.unsubscribe();
-          this.disconnectSubscription = null;
-        }
-        if (this.connectSubscription != null) {
-          this.connectSubscription.unsubscribe();
-          this.connectSubscription = null;
-        }
-      }
-    */
-    this.sClientID = "0";
-    this.sFilter = null;
-    this.bConnecting = false;
-    this.retry = null;
-    this.bConnect = bConnect;
-    this.MQTT_HOST = MQTT_HOST;
-    this.MQTT_PORT = MQTT_PORT;
-    if (bDebug) {
-      console.debug(this.MQTT_HOST, this.MQTT_HOST);
-    }
-    this.Global_Variables = Global_Variables;
-  }
-  MqttService.prototype.getMqttStatus = function () {
-    return this.oMqttStatus;
-  };
-  MqttService.prototype.setConnect = function (b) {
-    if (this.bConnect != b) {
-      this.bConnect = b;
-      if (this.bConnect == false) this.disconnectMQTT();else this.connect2MQTT();
-    }
-  };
-  MqttService.prototype.getClientID = function () {
-    // if (this.Global_Variables.UUID === undefined)
-    this.sClientID = uuid_1.v4();
-    // else
-    //   this.sClientID = this.Global_Variables.UUID;
-    return this.sClientID;
-  };
-  MqttService.prototype.mergeJSON = function (target, add) {
-    if (add === null || add === undefined) return target;
-    function isObject(obj) {
-      if (typeof obj == "object") {
-        for (var key in obj) {
-          if (obj.hasOwnProperty(key)) {
-            return true; // search for first object prop
-          }
-        }
-      }
-
-      return false;
-    }
-    for (var key in add) {
-      if (add.hasOwnProperty(key)) {
-        if (target[key] && isObject(target[key]) && isObject(add[key])) {
-          this.mergeJSON(target[key], add[key]);
-        } else {
-          target[key] = add[key];
-        }
-      }
-    }
-    return target;
-  };
-  MqttService.prototype.setMqttOptions = function (oOptions) {
-    this.options = this.mergeJSON(this.options, oOptions);
-    if (bDebug) {
-      console.debug(this.options);
-    }
-  };
-  MqttService.prototype.disconnectMQTT = function () {
-    if (this.oMqttClient !== undefined && this.oMqttClient.isConnected()) {
-      this.oMqttClient.disconnect();
-      //      this.deleteMonitorNetwork();
-    }
-  };
-  // Override MqttHost
-  MqttService.prototype.getMqttHost = function () {
-    return this.MQTT_HOST;
-  };
-  MqttService.prototype.connect = function () {
-    if (this.bConnect) {
-      this.connect2MQTT();
-    }
-  };
-  MqttService.prototype.connect2MQTT = function (sTopic) {
-    var _this = this;
-    if (sTopic === void 0) {
-      sTopic = null;
-    }
-    // console.log("connect2MQTT");
-    if (this.oMqttClient !== undefined && this.oMqttClient.isConnected()) {
-      if (this.bConnected == false) {
-        this.bConnected = true;
-        this.oMqttStatus = "Connected";
-        this.setConnectionStatus();
-      }
-      return true;
-    }
-    // if (this.bReconnecting) return false;
-    // if (this.Global_Variables.isConnected) // Network connection
-    // {
-    //   this.oMqttStatus = " connecting...";
-    //   this.onConnectionStatusChange(this.oMqttStatus);
-    // }
-    // else
-    //   return false;
-    if (this.bConnecting == true) return false;
-    this.bConnecting = true;
-    this.MQTT_HOST = this.getMqttHost();
-    if (this.MQTT_HOST == '') return false;
-    // if (this.MQTT_HOST == "localhost")
-    //   this.options.useSSL = false;
-    this.sClientID = this.getClientID();
-    this.oMqttClient = new mqttws31_1.Paho.MQTT.Client(this.MQTT_HOST, this.MQTT_PORT, this.sClientID);
-    this.bConnected = false;
-    this.sFilter = sTopic;
-    var me = this;
-    this.oMqttClient.onConnectionLost = function (responseObject) {
-      _this.bConnected = false;
-      _this.setConnectionStatus();
-      if (bDebug) {
-        console.log('Connection lost.' + JSON.stringify(responseObject));
-        console.log("Setting Reconnecting to false ", _this.bConnect);
-        _this.bReconnecting = false;
-      }
-      if (_this.bConnect) _this.reconnect();
-    };
-    this.oMqttClient.onMessageArrived = function (message) {
-      if (bDebug) {
-        console.log("Topic: " + message.destinationName);
-        console.log('Message: ' + message.payloadString);
-      }
-      _this.processMessage(message);
-    };
-    if (this.bConnect) {
-      //      this.monitorNetwork();
-      if (bDebug) console.info("Connecting... " + this.sClientID);
-      this.options.userName = this.getUserName();
-      this.options.password = this.getPassword();
-      if (bDebug) console.log(this.options);
-      this.oMqttClient.connect(this.options);
-    }
-    return false;
-  };
-  MqttService.prototype.getUserName = function () {
-    return 'test';
-  };
-  MqttService.prototype.getPassword = function () {
-    return 'test12';
-  };
-  MqttService.prototype.reconnect = function () {
-    var _this = this;
-    //Override if you want to ensure that the MQ connection is reestablished when disconnected.
-    //    this.monitorNetwork ( ) ;
-    if (!this.bConnect || this.bReconnecting) return;
-    if (this.retry == null) {
-      this.bReconnecting = true;
-      this.bConnecting = false;
-      this.retry = "Retrying...";
-      console.info(this.retry);
-      rxjs_1.interval(10000).subscribe(function (x) {
-        _this.retry = null;
-        _this.connect();
-      });
-    }
-    // this.retry = Observable.interval(10000)
-    //   .subscribe((val) => { this.connect(); });
-  };
-  //  {
-  //   console.log("OVERRIDE processMessage");
-  // }
-  MqttService.prototype.onFailure = function (msg) {
-    this.oMqttStatus = "Failed";
-    if (bDebug) console.log('Error: ' + JSON.stringify(msg));
-    this.bReconnecting = false;
-    this.reconnect();
-  };
-  MqttService.prototype.unsubscribe = function (sTopic) {
-    var index = this.oTopics.indexOf(sTopic);
-    if (index > -1) {
-      this.oTopics.splice(index, 1);
-      this.oMqttClient.unsubscribe(sTopic, null);
-    }
-  };
-  MqttService.prototype.subscribe = function (sTopic) {
-    if (sTopic == null || sTopic === undefined || sTopic.indexOf('undefined') > -1) return;
-    var index = this.oTopics.indexOf(sTopic);
-    if (index < 0) this.oTopics.push(sTopic);
-    if (!(this.oMqttClient !== undefined && this.oMqttClient.isConnected())) {
-      if (bDebug) console.log("Not Connected yet to subscribe " + sTopic);
-      return;
-    }
-    if (index < 0) this.oTopics.pop();
-    this.subscribeNow(sTopic);
-  };
-  MqttService.prototype.subscribeNow = function (sTopic) {
-    var oOptions = {
-      qos: 1
-    };
-    this.oMqttClient.subscribe(sTopic, oOptions);
-    if (bDebug) console.info("Subscribed Topic: [" + sTopic + "]");
-  };
-  MqttService.prototype.publish = function (sTopic, sMessage) {
-    if (this.bConnect == false) {
-      console.error("Not configured to connect [bConnect is false]");
-      return false;
-    }
-    if (!this.connect2MQTT()) {
-      if (bDebug) console.error("**Publish Error: Not Connected " + sTopic + " " + sMessage);
-      this.oPendingMessages.set(sTopic, sMessage);
-      return;
-    }
-    var message = new mqttws31_1.Paho.MQTT.Message(sMessage);
-    message.destinationName = sTopic;
-    message.qos = 1;
-    if (bDebug) console.info("Publish: " + sTopic + " " + message.payloadString);
-    this.oMqttClient.send(message);
-  };
-  MqttService.prototype.onConnectedSubscribe = function () {
-    var _this = this;
-    // if (this.retry != null) {
-    //   //   this.retry.unsubscribe();
-    //   this.retry = null;
-    // }
-    this.bConnected = true;
-    this.bReconnecting = false;
-    if (bDebug) console.debug('Connected to broker.');
-    this.subscribeNow("ServerUp");
-    this.subscribeNow("IP");
-    if (this.oTopics.length > 0) {
-      this.oTopics.forEach(function (cv) {
-        if (bDebug) console.debug("Subscribing: " + cv);
-        _this.subscribeNow(cv);
-      });
-    }
-    try {
-      this.oPendingMessages.forEach(function (sMessage, sTopic) {
-        var message = new mqttws31_1.Paho.MQTT.Message(sMessage);
-        message.destinationName = sTopic;
-        message.qos = 1;
-        if (bDebug) console.info("Publishing: " + sTopic + " " + message.payloadString);
-        _this.oMqttClient.send(message);
-        _this.oPendingMessages.delete(sTopic);
-      });
-    } catch (err) {
-      console.error(err);
-    }
-    this.bConnecting = false;
-  };
-  MqttService.prototype.onConnectionStatusChange = function (sStatus) {
-    console.log("Override onConnectionStatusChange");
-  };
-  MqttService.prototype.setConnectionStatus = function () {
-    var s = this.oMqttStatus;
-    if (this.bConnected) {
-      if (this.bServerUp) this.oMqttStatus = " connected";else this.oMqttStatus = " NOT connected"; //qcron-backend not connected
-    } else this.oMqttStatus = "Not connected";
-    if (this.bConnect == false) this.oMqttStatus = "";
-    if (s !== this.oMqttStatus) this.onConnectionStatusChange(this.oMqttStatus);
-  };
-  MqttService.prototype.getTopicPathInArray = function (message) {
-    var t = message.destinationName.split('/');
-    if (t[0] == 'ServerUp') {
-      this.bServerUp = message.payloadString.split(',')[0] == 'Y';
-      this.setConnectionStatus();
-    }
-    if (bDebug && t[0] == 'IP') {
-      console.info(message.payloadString);
-    }
-    return t;
-  };
-  MqttService.prototype.getMessageInArray = function (message) {
-    return message.payloadString.split(',');
-  };
-  return MqttService;
-}();
-exports.MqttService = MqttService;
 
 /***/ }),
 
