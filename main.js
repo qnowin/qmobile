@@ -765,18 +765,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ 8540);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _uqapp_timeslots__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @uqapp/timeslots */ 3935);
-/* harmony import */ var _app_properties__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../app/properties */ 8101);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 1699);
-/* harmony import */ var _title_bar_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../title-bar.service */ 9018);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ 6575);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ 7947);
-/* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../api.service */ 8789);
-/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/button */ 895);
-/* harmony import */ var _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/button-toggle */ 727);
-/* harmony import */ var _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/grid-list */ 647);
+/* harmony import */ var _app_properties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../app/properties */ 8101);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 1699);
+/* harmony import */ var _title_bar_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../title-bar.service */ 9018);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ 6575);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ 7947);
+/* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../api.service */ 8789);
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/button */ 895);
+/* harmony import */ var _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/button-toggle */ 727);
+/* harmony import */ var _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/grid-list */ 647);
 
-
+// import { TimeInfo, getUnbookedTime  } from '@uqapp/timeslots';
 
 
 
@@ -788,163 +787,163 @@ __webpack_require__.r(__webpack_exports__);
 
 function AppointmentComponent_div_0_div_10_Template(rf, ctx) {
   if (rf & 1) {
-    const _r10 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div")(1, "mat-button-toggle", 13);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function AppointmentComponent_div_0_div_10_Template_mat_button_toggle_click_1_listener() {
-      const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r10);
+    const _r10 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "div")(1, "mat-button-toggle", 13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("click", function AppointmentComponent_div_0_div_10_Template_mat_button_toggle_click_1_listener() {
+      const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵrestoreView"](_r10);
       const o_r8 = restoredCtx.$implicit;
-      const ctx_r9 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
-      return _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵresetView"](ctx_r9.onDateClick(o_r8));
+      const ctx_r9 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵnextContext"](2);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵresetView"](ctx_r9.onDateClick(o_r8));
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](2, "p", 14);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](4, "p", 15);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]()()();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](2, "p", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](4, "p", 15);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]()()();
   }
   if (rf & 2) {
     const o_r8 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("value", o_r8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](o_r8.title);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](o_r8.dow);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("value", o_r8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](o_r8.title);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](o_r8.dow);
   }
 }
 function AppointmentComponent_div_0_div_11_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 16);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "div", 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]();
-    const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵreference"](9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate1"]("Available appointments for ", _r1 == null ? null : _r1.value == null ? null : _r1.value.date, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵnextContext"]();
+    const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵreference"](9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate1"]("Available appointments for ", _r1 == null ? null : _r1.value == null ? null : _r1.value.date, " ");
   }
 }
 function AppointmentComponent_div_0_div_13_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 17);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, " Selected Appointment ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](2, "br");
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "div", 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, " Selected Appointment ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](2, "br");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
-    const ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate2"]("", ctx_r4.oSelectedDateItem.date, " @ ", ctx_r4.oSelectedTimeSlot.time_am_pm, " ");
+    const ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵnextContext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate2"]("", ctx_r4.oSelectedDateItem.date, " @ ", ctx_r4.oSelectedTimeSlot.time_am_pm, " ");
   }
 }
 function AppointmentComponent_div_0_div_14_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, "You already have an existing appointment on this date. ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](2, "br");
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](3, "Pls cancel before rescheduling");
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "You already have an existing appointment on this date. ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](2, "br");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](3, "Pls cancel before rescheduling");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
   }
 }
 function AppointmentComponent_div_0_div_15_Template(rf, ctx) {
   if (rf & 1) {
-    const _r12 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div")(1, "a", 18);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function AppointmentComponent_div_0_div_15_Template_a_click_1_listener() {
-      _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r12);
-      const ctx_r11 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
-      return _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵresetView"](ctx_r11.confirmBooking());
+    const _r12 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "div")(1, "a", 18);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("click", function AppointmentComponent_div_0_div_15_Template_a_click_1_listener() {
+      _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵrestoreView"](_r12);
+      const ctx_r11 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵnextContext"](2);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵresetView"](ctx_r11.confirmBooking());
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](2, "Confirm");
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]()();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](2, "Confirm");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]()();
   }
   if (rf & 2) {
-    const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("disabled", ctx_r6.bHasOpenAppointment);
+    const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵnextContext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("disabled", ctx_r6.bHasOpenAppointment);
   }
 }
 function AppointmentComponent_div_0_mat_grid_list_16_mat_grid_tile_2_Template(rf, ctx) {
   if (rf & 1) {
-    const _r16 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "mat-grid-tile")(1, "a", 21);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function AppointmentComponent_div_0_mat_grid_list_16_mat_grid_tile_2_Template_a_click_1_listener() {
-      const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r16);
+    const _r16 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "mat-grid-tile")(1, "a", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("click", function AppointmentComponent_div_0_mat_grid_list_16_mat_grid_tile_2_Template_a_click_1_listener() {
+      const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵrestoreView"](_r16);
       const f_r14 = restoredCtx.$implicit;
-      const ctx_r15 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](3);
-      return _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵresetView"](ctx_r15.onSelectTimeSlot(f_r14));
+      const ctx_r15 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵnextContext"](3);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵresetView"](ctx_r15.onSelectTimeSlot(f_r14));
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]()();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]()();
   }
   if (rf & 2) {
     const f_r14 = ctx.$implicit;
-    const ctx_r13 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("disabled", ctx_r13.bHasOpenAppointment);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](f_r14.time_am_pm);
+    const ctx_r13 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵnextContext"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("disabled", ctx_r13.bHasOpenAppointment);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](f_r14.time_am_pm);
   }
 }
 function AppointmentComponent_div_0_mat_grid_list_16_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "mat-grid-list", 19)(1, "div", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](2, AppointmentComponent_div_0_mat_grid_list_16_mat_grid_tile_2_Template, 3, 2, "mat-grid-tile", 7);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]()();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "mat-grid-list", 19)(1, "div", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](2, AppointmentComponent_div_0_mat_grid_list_16_mat_grid_tile_2_Template, 3, 2, "mat-grid-tile", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]()();
   }
   if (rf & 2) {
-    const ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngForOf", ctx_r7.oFreeTimeSlots);
+    const ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵnextContext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngForOf", ctx_r7.oFreeTimeSlots);
   }
 }
 function AppointmentComponent_div_0_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 1)(1, "div", 2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](3, "br");
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](5, "div", 3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](7, "div", 4)(8, "mat-button-toggle-group", 5, 6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](10, AppointmentComponent_div_0_div_10_Template, 6, 3, "div", 7);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](11, AppointmentComponent_div_0_div_11_Template, 2, 1, "div", 8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](12, "div", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](13, AppointmentComponent_div_0_div_13_Template, 4, 2, "div", 10);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](14, AppointmentComponent_div_0_div_14_Template, 4, 0, "div", 11);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](15, AppointmentComponent_div_0_div_15_Template, 3, 1, "div", 11);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](16, AppointmentComponent_div_0_mat_grid_list_16_Template, 3, 1, "mat-grid-list", 12);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "div", 1)(1, "div", 2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](3, "br");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](5, "div", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](7, "div", 4)(8, "mat-button-toggle-group", 5, 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](10, AppointmentComponent_div_0_div_10_Template, 6, 3, "div", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]()();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](11, AppointmentComponent_div_0_div_11_Template, 2, 1, "div", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](12, "div", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](13, AppointmentComponent_div_0_div_13_Template, 4, 2, "div", 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](14, AppointmentComponent_div_0_div_14_Template, 4, 0, "div", 11);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](15, AppointmentComponent_div_0_div_15_Template, 3, 1, "div", 11);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](16, AppointmentComponent_div_0_mat_grid_list_16_Template, 3, 1, "mat-grid-list", 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
-    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate1"](" ", ctx_r0.oEntity.ENAME, " ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate1"]("", ctx_r0.oEntity.ADDRESS, " ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate1"](" ", ctx_r0.oItem.NAME, " ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("value", ctx_r0.oItems[0]);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngForOf", ctx_r0.oItems);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngIf", !ctx_r0.bHasOpenAppointment);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngIf", ctx_r0.oSelectedTimeSlot != null);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngIf", ctx_r0.bHasOpenAppointment);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngIf", ctx_r0.oSelectedTimeSlot != null);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngIf", ctx_r0.bHasOpenAppointment == false);
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate1"](" ", ctx_r0.oEntity.ENAME, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate1"]("", ctx_r0.oEntity.ADDRESS, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate1"](" ", ctx_r0.oItem.NAME, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("value", ctx_r0.oItems[0]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngForOf", ctx_r0.oItems);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngIf", !ctx_r0.bHasOpenAppointment);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngIf", ctx_r0.oSelectedTimeSlot != null);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngIf", ctx_r0.bHasOpenAppointment);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngIf", ctx_r0.oSelectedTimeSlot != null);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngIf", ctx_r0.bHasOpenAppointment == false);
   }
 }
 // import { MatButtonToggle, MatButtonToggleGroup } from '@angular/material/button-toggle';
@@ -992,7 +991,7 @@ class AppointmentComponent {
       o[m] ? o[m].data.push(a) : o[m] = {
         DAYOFWEEK: m,
         data: [a],
-        DOW: _app_properties__WEBPACK_IMPORTED_MODULE_2__.Global_Variables.DOW[Number(m)]
+        DOW: _app_properties__WEBPACK_IMPORTED_MODULE_1__.Global_Variables.DOW[Number(m)]
       };
       return o;
     }, {});
@@ -1034,7 +1033,7 @@ class AppointmentComponent {
       // booked_times = [];
       if (data.result.length > 0) {
         data.result.forEach(e => {
-          if (e.UID == _app_properties__WEBPACK_IMPORTED_MODULE_2__.Global_Variables.iUserID) {
+          if (e.UID == _app_properties__WEBPACK_IMPORTED_MODULE_1__.Global_Variables.iUserID) {
             this.bHasOpenAppointment = true;
           }
           booked_times.push(e.AQNUMBER);
@@ -1057,7 +1056,8 @@ class AppointmentComponent {
           //          if (moment(this.oSelectedDateItem.date, "YYYY-MMM-DD").isSame(dtNow, 'day') && parseInt(e.data[0].TIME_CLOSE) < parseInt(moment().format("HHmm"))) return;
           this.oFreeTimeSlots = [];
           for (var i = 0; i < e.data.length; i++) {
-            this.oFreeTimeSlots = this.oFreeTimeSlots.concat((0,_uqapp_timeslots__WEBPACK_IMPORTED_MODULE_1__.getUnbookedTime)(e.data[i].TIME_OPEN, e.data[i].TIME_CLOSE, 30, booked_times));
+            console.log(e.data[i].TIME_OPEN);
+            this.oFreeTimeSlots = this.oFreeTimeSlots.concat(this.getUnbookedTime(e.data[i].TIME_OPEN, e.data[i].TIME_CLOSE, 30, booked_times));
             // console.log(this.oFreeTimeSlots);
           }
         }
@@ -1086,10 +1086,85 @@ class AppointmentComponent {
       this.oRouter.navigateByUrl('myappointments');
     });
   }
+  // TODO Once verified use timeslot module - Changed already replicated
+  // Provides time slots given some interval
+  getTime(num) {
+    var tempHour = String(Math.trunc(num / 60));
+    var hour = tempHour + "".length === 1 ? "0" + tempHour : tempHour;
+    var min = num % 60 === 0 ? "00" : num % 60;
+    var sAMPM = 'am';
+    var hr = hour;
+    if (hour >= 12) {
+      hr = hour - 12;
+      if (hr == 0) hr = 12;
+      sAMPM = 'pm';
+    }
+    return {
+      num: num,
+      time: hour + ':' + min,
+      db_time: +hour * 100 + +min,
+      time_am_pm: hr + ':' + min + ' ' + sAMPM
+    };
+  }
+  getTimeSlots(blockTimes, showTimeAsString, interval, includeStartBlockedTime, includeEndBlockedTime) {
+    var times = 1,
+      sums = 60;
+    var me = this;
+    includeStartBlockedTime = includeStartBlockedTime === true ? true : false;
+    includeEndBlockedTime = includeEndBlockedTime === true ? true : false;
+    sums = interval;
+    times = 60 / sums;
+    var start = 0;
+    var dateTimes = Array(Math.round(24 * times)).fill(0).map(function (_) {
+      start = start + sums;
+      return start;
+    });
+    blockTimes = Array.isArray(blockTimes) === true && blockTimes.length > 0 ? blockTimes : [];
+    if (blockTimes.length > 0) {
+      dateTimes = blockTimes.reduce(function (acc, x) {
+        return acc.filter(function (y) {
+          return includeStartBlockedTime == true ? y <= x[0] : y < x[0];
+        }).concat(acc.filter(function (y) {
+          return includeEndBlockedTime == true ? y >= x[1] : y > x[1];
+        }));
+      }, dateTimes);
+    }
+    if (showTimeAsString === true) {
+      return dateTimes.map(function (x) {
+        return me.getTime(x);
+      }).reduce(function (accc, element) {
+        accc["" + element.num] = element.time;
+        return accc;
+      }, {});
+    }
+    return dateTimes;
+  }
+  convertTime2Numbers(num) {
+    //this is what is stored in DB
+    console.log("Converting", num, "" + parseInt(num) / 100 * 60, "+", +num % 100);
+    return parseInt("" + parseInt(num) / 100) * 60 + num % 100;
+  }
+  getUnbookedTime(start_time, end_time, interval, booked_times) {
+    var me = this;
+    var blocked_times = [];
+    for (var i = 0; i < booked_times.length; i++) {
+      var b = this.convertTime2Numbers(booked_times[i]);
+      blocked_times.push([b, b]);
+    }
+    var st = this.convertTime2Numbers(start_time);
+    var et = this.convertTime2Numbers(end_time);
+    var oFree = me.getTimeSlots(blocked_times, false, interval, true, false);
+    let oAvailableTimes = oFree.filter(time => {
+      return time >= st && time < et;
+    }).map(function (x) {
+      return me.getTime(x);
+    });
+    return oAvailableTimes;
+  }
   static #_ = this.ɵfac = function AppointmentComponent_Factory(t) {
-    return new (t || AppointmentComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_title_bar_service__WEBPACK_IMPORTED_MODULE_3__.TitleBarService), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_6__.Location), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_7__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_api_service__WEBPACK_IMPORTED_MODULE_4__.APIService));
+    return new (t || AppointmentComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_title_bar_service__WEBPACK_IMPORTED_MODULE_2__.TitleBarService), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_5__.Location), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_api_service__WEBPACK_IMPORTED_MODULE_3__.APIService));
   };
-  static #_2 = this.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineComponent"]({
+  static #_2 = this.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineComponent"]({
     type: AppointmentComponent,
     selectors: [["app-appointment"]],
     decls: 1,
@@ -1097,13 +1172,13 @@ class AppointmentComponent {
     consts: [["class", "full-height", 4, "ngIf"], [1, "full-height"], [1, "entity-title"], [1, "service-title"], [1, "scroll"], [3, "value"], ["group", "matButtonToggleGroup"], [4, "ngFor", "ngForOf"], ["class", "example-selected-value", 4, "ngIf"], [1, "center"], ["style", "padding:10px", 4, "ngIf"], [4, "ngIf"], ["cols", "3", "rowHeight", "4:2", 4, "ngIf"], [1, "dateDDWWW", 3, "value", "click"], [1, "day"], [1, "dow"], [1, "example-selected-value"], [2, "padding", "10px"], ["mat-raised-button", "", "color", "accent", "full", "", 3, "disabled", "click"], ["cols", "3", "rowHeight", "4:2"], [1, "appointment-slots"], ["mat-raised-button", "", "color", "accent", 1, "time", 3, "disabled", "click"]],
     template: function AppointmentComponent_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](0, AppointmentComponent_div_0_Template, 17, 10, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](0, AppointmentComponent_div_0_Template, 17, 10, "div", 0);
       }
       if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngIf", ctx.bLoaded);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngIf", ctx.bLoaded);
       }
     },
-    dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_6__.NgForOf, _angular_common__WEBPACK_IMPORTED_MODULE_6__.NgIf, _angular_material_button__WEBPACK_IMPORTED_MODULE_8__.MatAnchor, _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_9__.MatButtonToggleGroup, _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_9__.MatButtonToggle, _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_10__.MatGridList, _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_10__.MatGridTile],
+    dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_5__.NgForOf, _angular_common__WEBPACK_IMPORTED_MODULE_5__.NgIf, _angular_material_button__WEBPACK_IMPORTED_MODULE_7__.MatAnchor, _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_8__.MatButtonToggleGroup, _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_8__.MatButtonToggle, _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_9__.MatGridList, _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_9__.MatGridTile],
     styles: ["/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsInNvdXJjZVJvb3QiOiIifQ== */"]
   });
 }
@@ -1145,7 +1220,7 @@ class AuthGuardService {
         // this.router.navigate(['']);
         var data = {};
         data.DEVICEUID = (0,uuid__WEBPACK_IMPORTED_MODULE_3__["default"])();
-        // data.email = UUID();
+        // data.email = uuidv4();
         // data.password = data.email;
         _this.authService.login(_properties__WEBPACK_IMPORTED_MODULE_1__.Global_Variables.AUTH_URL, data, 'entities');
         return false;
@@ -1826,7 +1901,7 @@ class ClinicsComponent extends abstract_mqtt__WEBPACK_IMPORTED_MODULE_2__.MqttSe
   }
   getClientID() {
     //  super.sClientID = "qs-" + this.Global_Variables.UUID;
-    // return UUID();
+    // return uuidv4();
     return "qs-" + this.Global_Variables.UUID;
   }
   constructor(activatedRoute, oTBS, oRouter, oAPIService, oAuthService) {
@@ -2932,7 +3007,7 @@ class LoginComponent {
       // console.log("****QRParsing Finished");
       // if (!this.oAuthService.exists()) {
       //   var data: any = {};
-      //   data.DEVICEUID = UUID();
+      //   data.DEVICEUID = uuidv4();
       //   try {
       //     //        var res = await this.oAuthService.login("auth", data, "entities");
       //     var res = await this.oAuthService.login("auth", data, null);
@@ -3016,7 +3091,7 @@ class LoginComponent {
           yield _this5.oAuthService.login("auth", data, "entities");
         } catch (err) {
           // var data: any = {};
-          // data.DEVICEUID = UUID();
+          // data.DEVICEUID = uuidv4();
           // try {
           //   var res = await this.oAuthService.login("auth", data, "entities");
           //   // var res = await this.oAuthService.login("auth", data, null);
@@ -4308,9 +4383,10 @@ class QueueStatusComponent extends abstract_mqtt__WEBPACK_IMPORTED_MODULE_1__.Mq
       return;
     }
     var m = super.getMessageInArray(message);
+    console.log(m);
     if (t[0] == "CQ") {
       this.oItems.forEach(oItem => {
-        console.log(oItem);
+        // console.log(oItem);
         if (oItem.ENTITYID == t[1] && oItem.SERVICEID == t[2]) {
           oItem.CURRENTQN = Number(m[0]);
           oItem.CURRENTQN_T = this.padLeft(oItem.CURRENTQN, "0", 3);
@@ -4852,8 +4928,8 @@ class ServicesComponent extends abstract_mqtt__WEBPACK_IMPORTED_MODULE_4__.MqttS
   }
   getClientID() {
     //  super.sClientID = "qs-" + this.Global_Variables.UUID;
-    // return UUID();
-    return "qs-" + this.Global_Variables.UUID;
+    // return uuidv4();
+    return "qs-" + _app_properties__WEBPACK_IMPORTED_MODULE_1__.Global_Variables.UUID;
   }
   // public getClientID() {
   //   super.sClientID = "svc-" + this.Global_Variables.UUID;
@@ -5199,7 +5275,7 @@ class TakeQueueComponent {
       var data = {};
       // data.DEVICEUID = this.oAuthService.getDeviceID();
       // if (data.DEVICEUID === undefined || data.DEVICEUID == null)
-      //   data.DEVICEUID = this.oAuthService.saveDeviceID(UUID());
+      //   data.DEVICEUID = this.oAuthService.saveDeviceID(uuidv4());
       data.email = _this.oAuthService.getDeviceID();
       if (data.email === undefined || data.email == null) {
         data.email = _this.oAuthService.saveDeviceID((0,uuid__WEBPACK_IMPORTED_MODULE_4__["default"])());
