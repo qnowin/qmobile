@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1706760213554,
+  "timestamp": 1706838411280,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -88,7 +88,7 @@
     "/assets/img/menu-svgrepo-com.svg": "1488f6942ea6509f565345ff55a4982dd7e64baf",
     "/assets/img/menu.svg": "46f277219021dba84a651df28ee2f28c4093a798",
     "/index.html": "f229c25669d11732860fcc4c521eca10d2a043dd",
-    "/main.js": "b4d2ddf0a2222cb86c8320276fa2e121874e4c7c",
+    "/main.js": "755bda52fdaaccf4d872dac89c868a7e85f74ae6",
     "/manifest.webmanifest": "b899254eee6b7b79e8cc39a8672acf69377f22bf",
     "/polyfills.js": "e7e2bc871c451dfb2cb3d5f4200d2bbd508709d2",
     "/runtime.js": "1f98b5aaea65679445e8091bb31ab941af34f961",
